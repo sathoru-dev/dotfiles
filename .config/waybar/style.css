@@ -1,0 +1,287 @@
+@import "/home/sathoru/.cache/wal/colors-waybar.css";
+
+* {
+	font-family: "JetBrainsMono Nerd Font";
+	font-weight: bold;
+	font-size: 14px;
+	min-height: 0;
+}
+
+/* === Main Background === */
+window#waybar {
+	background: rgba(0, 0, 0, 0);
+}
+
+/* === Tooltip === */
+tooltip {
+	background: @background;
+	border: solid;
+	border-radius: 8px;
+	border-color: @main-br;
+}
+
+tooltip label {
+	color: @foreground;
+	font-weight: normal;
+	margin: 0.25px;
+}
+
+/* === Workspace === */
+/* == Workspaces == */
+#custom-left1 {
+	color: @background;
+	background: @main-bg;
+	background: rgba(0, 0, 0, 0);
+	padding-left: 2px;
+}
+
+#custom-right1 {
+	color: @background;
+	background: rgba(0, 0, 0, 0);
+}
+
+#workspaces {
+	margin-bottom: 0;
+	padding: 0 4px;
+	background: @background;
+}
+
+#workspaces button {
+	padding: 0px 5px;
+	margin: 4px 3px;
+	border-radius: 15px;
+	border: 0px;
+	color: @background;
+	background: linear-gradient(45deg, @color4, @color6, @color3);
+	opacity: 0.5;
+	transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
+}
+
+#workspaces button.active {
+	padding: 0px 2px;
+	margin: 4px 3px;
+	border-radius: 15px;
+	border: 0px;
+	color: @background;
+	background: linear-gradient(45deg, @color3, @color5);
+	opacity: 1.0;
+	min-width: 40px;
+	transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
+}
+
+#workspaces button:hover {
+	border-radius: 15px;
+	color: #0F1419;
+	background: linear-gradient(45deg, @color3, @color5);
+	opacity: 0.8;
+	transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
+}
+
+/* == Temperature == */
+#custom-left2 {
+	color: @color3;
+	background: rgba(0, 0, 0, 0);
+	padding-left: 3px;
+}
+
+#custom-cpuinfo {
+	color: @white;
+	background: @color3;
+	padding-left: 1px;
+	padding-right: 3px;
+}
+
+/* == Memory == */
+#custom-left3 {
+	color: @color4;
+	background: @color3;
+	padding-left: 3px;
+}
+
+#memory {
+	color: @white;
+	background: @color4;
+	padding-left: 1px;
+	padding-right: 0;
+}
+
+#memory.warning {
+	color: @yellow;
+}
+
+#memory.critical {
+	color: @red;
+}
+
+/* == CPU == */
+#custom-left4 {
+	color: @color5;
+	background: @color4;
+	padding-left: 3px;
+}
+
+#cpu {
+	padding-right: 5px;
+	background: @color5;
+}
+
+#custom-leftin1 {
+	color: @color5;
+	font-size: 15.9pt;
+	margin-bottom: -2px;
+}
+
+/* == Distro Icon == */
+#custom-left5 {
+	color: @color10;
+	background: @main-bg;
+	text-shadow: -2px 0 2px rgba(0, 0, 0, 0.6);
+	padding-left: 3px;
+}
+
+#custom-icon {
+	color: @white;
+	background: @color10;
+	font-size: 14pt;
+	margin-right: -1px;
+	margin-bottom: -1px;
+	padding-right: 0;
+	padding-left: 3px;
+	text-shadow: 0 0 1.5px rgba(0, 0, 0, 1);
+}
+
+#custom-right2 {
+	color: @color10;
+	background: @main-bg;
+}
+
+/* == Time == */
+#custom-rightin1 {
+	color: @color12;
+	font-size: 15.9pt;
+	margin-bottom: -2px;
+}
+
+#clock.time {
+	padding-left: 5px;
+	background: @color12;
+}
+
+#custom-right3 {
+	color: @color12;
+	margin-left: 0px;
+	background: @color13;
+}
+
+/* == Date == */
+#clock.date {
+	background: @color13;
+}
+
+#clock.date:hover {
+	color: @foreground;
+	text-shadow: none;
+	box-shadow: none;
+}
+
+#custom-right4 {
+	color: @color13;
+	background: @color14;
+}
+
+/* == Output Device == */
+#pulseaudio {
+	background: @color14;
+}
+
+#pulseaudio:hover {
+	color: @hover-fg;
+	text-shadow: none;
+	box-shadow: none;
+}
+
+#custom-right5 {
+	color: @color14;
+	background: rgba(0, 0, 0, 0);
+}
+
+/* == Media Info == */
+#custom-media {
+	font-weight: normal;
+	background-color: rgba(0, 0, 0, 0);
+	padding-right: 8px;
+	padding-left: 8px;
+}
+
+#custom-media:hover {
+	color: @color4;
+	text-shadow: none;
+	box-shadow: none;
+}
+
+#custom-cava_mviz {
+	color: @white;
+	background: @color12;
+	padding: 0px 4px;
+}
+
+#custom-left7 {
+	color: @color12;
+	background: rgba(0, 0, 0, 0);
+	padding-left: 2px;
+}
+
+#custom-left8 {
+	color: rgba(0, 0, 0, 0);
+	background: @color12;
+	text-shadow: 0px 0 0px rgba(0, 0, 0, 0.5);
+	padding-left: 2px;
+}
+
+/* == Notification Button == */
+#custom-leftin2 {
+	color: @color12;
+	background: rgba(0, 0, 0, 0);
+	font-size: 15.9pt;
+	margin-bottom: -2px;
+}
+
+#custom-notification {
+	color: @white;
+	background: @color14;
+	border-radius: 10px;
+	margin: 2px 4px 2px 0;
+	padding-right: 6px;
+	padding-left: 9px;
+	transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
+}
+
+#custom-notification:hover {
+	color: @white;
+	background: @background;
+	text-shadow: none;
+	box-shadow: none;
+}
+
+/* === General === */
+#custom-left1,
+#custom-left2,
+#custom-left3,
+#custom-left4,
+#custom-left5,
+#custom-left6,
+#custom-left7,
+#custom-left8 {
+	font-size: 15pt;
+	text-shadow: -2px 0 2px rgba(0, 0, 0, 0.2);
+}
+
+#custom-right1,
+#custom-right2,
+#custom-right3,
+#custom-right4,
+#custom-right5 {
+	font-size: 15pt;
+	padding-right: 3px;
+	text-shadow: 2px 0 2px rgba(0, 0, 0, 0.2);
+}

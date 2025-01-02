@@ -1,0 +1,144 @@
+@import "/home/sathoru/.cache/wal/colors-waybar.css";
+
+* {
+    font-size: 97%;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+  }
+  
+  window#waybar {
+    background-color: rgba(26,27,38,0);
+    border-bottom: 1px solid rgba(26,27,38,0);
+    border-radius: 0px;
+    color: #E6B673;
+  }
+  
+  window#waybar.empty #window {
+      background: rgba(12, 12, 12, 0.0);
+  }
+  
+  #workspaces {
+    background: @background;
+    margin: 5px;
+    padding: 0px 1px;
+    border-radius: 15px;
+    border: 0px;
+    font-style: normal;
+    color: @background;
+  }
+  
+  #workspaces button {
+    padding: 0px 5px;
+    margin: 4px 3px;
+    border-radius: 15px;
+    border: 0px;
+    color: @background;
+    background: linear-gradient(45deg, @color4, @color6, @color3);
+    opacity: 0.5;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+  }
+  
+  #workspaces button.active {
+    padding: 0px 5px;
+    margin: 4px 3px;
+    border-radius: 15px;
+    border: 0px;
+    color: @background;
+    background: linear-gradient(45deg, @color3, @color5);
+    opacity: 1.0;
+    min-width: 40px;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+  }
+  
+  #workspaces button:hover {
+    border-radius: 15px;
+    color: #0F1419;
+    background: linear-gradient(45deg, @color3, @color5);
+    opacity: 0.8;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+  }
+
+  #window {
+      color: @foreground;
+      background: @background;
+      border-radius: 50px 50px;
+      margin: 5px;
+      padding: 2px 15px;
+  }
+
+  #clock {
+    color: @foreground;
+    background: @background;
+    border-radius: 50px 50px;
+    margin: 5px;
+    padding: 2px 10px;
+}
+
+
+#network {
+  color: @color6;
+  background: @background;
+  border-radius: 50px 50px;
+  margin: 5px;
+  padding: 2px 15px;
+min-width: 180px;
+}
+
+#memory {
+  color: @color6;
+  background: @background;
+  border-radius: 50px 50px;
+  margin: 5px;
+  padding: 2px 15px;
+}
+
+#cpu {
+  color: @foreground;
+  background: @background;
+  border-radius: 50px 50px;
+  margin: 5px;
+  padding: 2px 15px;
+}
+
+  
+#pulseaudio {
+  color: @color8;
+  background: @background;
+  border-radius: 50px 50px;
+  margin: 5px;
+  padding: 2px 15px;
+}
+
+  #custom-power{
+      color: #ff7777;
+      background: @background;
+      border-radius: 50px 50px;
+      margin: 5px;
+      padding: 2px 15px;
+  }
+  
+  #custom-notification{
+      color: @color5;
+      background: @background;
+      border-radius: 50px 50px;
+      margin: 5px;
+      padding: 2px 15px;
+  }
+
+  #custom-cava_mviz{
+    color: @color4;
+    background: @background;
+    border-radius: 50px 50px;
+    margin: 5px;
+    padding: 2px 15px;
+
+    
+}
+
+#custom-spotify {
+  color: @foreground;
+  background: @background;
+  border-radius: 50px 50px;
+  margin: 5px;
+  padding: 2px 15px;
+}

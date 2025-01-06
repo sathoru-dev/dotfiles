@@ -94,7 +94,8 @@ change_wallpaper() {
 
 change_locked() {
 
-    if [ -d "$USER/.cache/hyprlock" ] then
+    if [ -d "$USER/.cache/hyprlock" ]
+    then
         local image
         local name_image
         image=$(select_image)
@@ -113,18 +114,17 @@ change_locked() {
 wallpaper_sddm() {
     local image
 
-    dir_cache="$HOME/.cache/sddm"
-    file_config="$HOME/.config/sddm_wallpaper"
+    dir="/tmp/sddm"
 
     # Validar que todo este configurado exitosamente
-    if [ -d "$dir_cache" ] && [ -d "$file_config" ]
+    if [ -d "$dir" ]
     then
         image=$(select_image)
         name_image="${image##*/}"
 
-        rm -r ~/.cache/sddm/* # Elimina los archivos dentro de la cache
-        cp $image ~/.cache/sddm/
-        ln -sf "$HOME/.cache/sddm/$name_image" "$HOME/.config/sddm_wallpaper/sddm_background" 
+        rm -r "$dir/*" # Elimina los archivos dentro de la cache
+        cp $image "$dir"
+        ln -sf "$dir/$name_image" "$dir/sddm_background" 
 
         launch_notify "Fondo de inicio de sesion cambiado exitosamente"
     else

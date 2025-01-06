@@ -239,22 +239,22 @@ Si no esta configurado todo de una forma correcta se mostrara un error para aseg
 Como primer paso debes acceder a la ruta donde tienes el tema justo en el directorio donde estan los fondos,
 **en mi caso es: _/usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds_**
 
-Una vez ubicados aqui, debemos crear un enlace simbolico que conecte el directorio de fondos con uno que debemos crear en la configuracion:
-```bash
-mkdir ~/.config/sddm_wallpaper
-```
-Y uno en la cache (Donde almacenaremos temporalmente la imagen)
-```bash
-mkdir ~/.cache/sddm
-```
-Ahora si ejecutamos el comando para crear el enlace simbolico
-```bash
-sudo ln -s $HOME/.config/sddm_wallpaper/sddm_background /usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/background
-```
-En la configuracion del tema debemos modificar la linea donde se encuentra definido el fondo, en mi caso es:
-```bash
-# "Background es el enlace simbolico creado anteriormente"
-#################### Background ####################
-Background="Backgrounds/background"
-```
+- **Damos permisos totales al directorio donde almacenaremos los archivos**
+    ```bash
+    sudo chmod 777 /usr/local/etc
+    ```
+- **Creamos el directorio dedicado a SDDM**
+    ```bash
+    mkdir /usr/local/etc/sddm
+    ```
+- **Comando para crear el enlace simbolico**
+    ```bash
+    sudo ln -s /usr/local/etc/sddm/sddm_background /usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/background
+    ```
+- En la configuracion del tema debemos modificar la linea donde se encuentra definido el fondo, en mi caso es:
+    ```bash
+    # "Background es el enlace simbolico creado anteriormente"
+    #################### Background ####################
+    Background="Backgrounds/background"
+    ```
 **Ejecuta el script de cambio de fondo de pantalla**

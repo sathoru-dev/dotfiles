@@ -42,7 +42,7 @@
 			  },
 			  {
 				"active": false,
-				"command": "sh -c ~/.config/scripts/swaync/menu.sh &",
+				"command": "sh -c ~/.config/scripts/swaync/wallpaper_util.sh &",
 				"label": "󱇣",
 				"type": "button"
 			  },
@@ -85,11 +85,11 @@
   },
   
 	"widgets": [
-	  "title",
-	  "buttons-grid",
-	  "mpris",
-	  "dnd",
-	  "notifications",
-	  "volume"
+		"title",
+		"mpris",
+		"volume",
+	  	"buttons-grid",
+	  	"dnd",
+	  	"notifications"
 	]
   }

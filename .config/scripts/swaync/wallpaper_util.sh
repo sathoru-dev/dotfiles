@@ -12,10 +12,13 @@ show_dialog() {
         --column="" \
         --column="Nombre" \
         --column="Descripción" \
-        TRUE "Wallpaper" "Cambia el fondo de pantalla junto a los colores" \
-        FALSE "Solo wallpaper" "Cambia solo el fondo de pantalla conservando los colores" \
-        FALSE "Colores" "Cambia el esquema de colores subiendo una imagen"
+        FALSE "Fondo de bloqueo" "Cambia el fondo de pantalla de hyprlock" \
+        FALSE "Fondo Inicio de Sesion" "Cambia el fondo de pantalla de inicio de sesion" \
+        TRUE "Fondo de pantalla" "Cambia el fondo de pantalla junto a los colores" \
+        FALSE "Solo fondo de pantalla" "Cambia solo el fondo de pantalla conservando los colores" \
+        FALSE "Colores de interfaz" "Cambia el esquema de colores subiendo una imagen"
 }
+
 
 # Cuadro de despedida
 good_bye() {
@@ -89,7 +92,45 @@ change_wallpaper() {
 
 }
 
+change_locked() {
 
+    if [ -d "$USER/.cache/hyprlock" ] then
+        local image
+        local name_image
+        image=$(select_image)
+        name_image="${image##*/}"
+
+        rm -r ~/.cache/hyprlock/* # Elimina los archivos dentro de la cache
+        cp $image ~/.cache/hyprlock/
+        echo "\$wallpaper = /home/sathoru/.cache/hyprlock/$name_image" > ~/.cache/hyprlock/wallpaper.conf
+
+        launch_notify "El fondo de pantalla de bloqueo se ha cambiado exitosamente <span color='green'></span>"
+    else
+        zenity --error --title="Error de configuracion" --text="Los archivos nesesarios para la ejecucion de esta tarea no estan configurados correctamente"
+    fi
+}
+
+wallpaper_sddm() {
+    local image
+
+    dir_cache="$HOME/.cache/sddm"
+    file_config="$HOME/.config/sddm_wallpaper"
+
+    # Validar que todo este configurado exitosamente
+    if [ -d "$dir_cache" ] && [ -d "$file_config" ]
+    then
+        image=$(select_image)
+        name_image="${image##*/}"
+
+        rm -r ~/.cache/sddm/* # Elimina los archivos dentro de la cache
+        cp $image ~/.cache/sddm/
+        ln -sf "$HOME/.cache/sddm/$name_image" "$HOME/.config/sddm_wallpaper/sddm_background" 
+
+        launch_notify "Fondo de inicio de sesion cambiado exitosamente"
+    else
+        zenity --error --title="Error de configuracion" --text="Los archivos nesesarios para la ejecucion de esta tarea no estan configurados correctamente"
+    fi
+}
 
 # Bucle principal para mantener la interacción hasta que el usuario decida salir
 while true; do
@@ -101,13 +142,19 @@ while true; do
 
     # Maneja la opción seleccionada mediante un bloque case
     case "$selected_item" in
-        "Wallpaper") 
+        "Fondo de bloqueo")
+            change_locked
+            ;;
+        "Fondo Inicio de Sesion")
+            wallpaper_sddm
+            ;;
+        "Fondo de pantalla") 
             change_wallpaper_color  # Llama a la función para cambiar fondo y colores (a implementar)
             ;;
-        "Solo wallpaper") 
+        "Solo fondo de pantalla") 
             change_wallpaper  # Llama a la función para cambiar solo el fondo (a implementar)
             ;;
-        "Colores") 
+        "Colores de interfaz") 
             change_colors  # Llama a la función para cambiar solo los colores (a implementar)
             ;;
         *) 
@@ -121,4 +168,4 @@ while true; do
     else
         break  # Si el usuario elige "No", sale del bucle
     fi
-done
+done 

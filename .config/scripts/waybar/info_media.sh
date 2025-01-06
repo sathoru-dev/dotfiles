@@ -6,7 +6,7 @@ if [[ "$player_status" == "Playing" ]]; then
   if [[ "$player_name" == "spotify" ]]; then
     song_info=$(playerctl metadata --format '<span color="#81b71a">󰓇</span> {{title}}')
   elif [[ "$player_name" == "firefox" ]]; then
-    song_info=$(playerctl metadata --format '<span color="#c4302b"></span> {{title}}')
+    song_info=$(playerctl metadata --format '<span color="#c4302b"></span> {{title}}')
   elif [[ "$player_name" == "mpd" ]]; then
     song_info=$(playerctl metadata --format '{{title}}  󰎆   {{artist}}')
   elif [[ "$player_name" == "chromium" ]]; then

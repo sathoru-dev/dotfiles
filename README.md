@@ -219,4 +219,42 @@ install xdg-desktop-portal-gtk
 
 ## ✅ Pasos finales
 
-Ahora si copia los archivos que se encuentran en la carpeta ".config" a la carpeta de configuracion de tu sistema, con mucha calma y paciencia tienes que ir revisando las rutas de algunos archivos y cambiarlas con el nombre de tu usuario
+Copia todos los archivos que se encuentran dentro de _".config"_ a este mismo directorio dentro de tu carpeta _"home"_
+
+- **NOTA:** Es muy probable que tengas errores, esto debido a que tienes que ir depurando y corrigiendo rutas dentro de los archivos cambiando solo algunas partes con el nombre de tu usurio
+
+- **Directorios que debes crear:**
+
+    - En tu directorio _".cache"_ debes crear los siguientes directorios:
+        - **hyprlock** Aqui se guarda la configuracion del fondo de pantalla de bloqueo
+        - **albumart** Directorio donde se almacenan las imagenes de las portadas de las canciones en reproduccion
+
+## 🔒 Fondo de SDDM
+El Script de fondos de pantalla integrado permite cambiar el fondo de pantalla de sddm de forma dinamica y facil
+
+Si no esta configurado todo de una forma correcta se mostrara un error para asegurar la integridad
+
+- **Tema actual: sddm-astronaut-theme**
+
+Como primer paso debes acceder a la ruta donde tienes el tema justo en el directorio donde estan los fondos,
+**en mi caso es: _/usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds_**
+
+Una vez ubicados aqui, debemos crear un enlace simbolico que conecte el directorio de fondos con uno que debemos crear en la configuracion:
+```bash
+mkdir ~/.config/sddm_wallpaper
+```
+Y uno en la cache (Donde almacenaremos temporalmente la imagen)
+```bash
+mkdir ~/.cache/sddm
+```
+Ahora si ejecutamos el comando para crear el enlace simbolico
+```bash
+sudo ln -s $HOME/.config/sddm_wallpaper/sddm_background /usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/background
+```
+En la configuracion del tema debemos modificar la linea donde se encuentra definido el fondo, en mi caso es:
+```bash
+# "Background es el enlace simbolico creado anteriormente"
+#################### Background ####################
+Background="Backgrounds/background"
+```
+**Ejecuta el script de cambio de fondo de pantalla**

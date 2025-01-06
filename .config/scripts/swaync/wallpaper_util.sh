@@ -114,7 +114,7 @@ change_locked() {
 wallpaper_sddm() {
     local image
 
-    dir="/tmp/sddm"
+    dir="/usr/local/etc/sddm"
 
     # Validar que todo este configurado exitosamente
     if [ -d "$dir" ]
@@ -122,7 +122,7 @@ wallpaper_sddm() {
         image=$(select_image)
         name_image="${image##*/}"
 
-        rm -r "$dir/*" # Elimina los archivos dentro de la cache
+        rm -r "$dir"/* # Elimina los archivos dentro de la cache
         cp $image "$dir"
         ln -sf "$dir/$name_image" "$dir/sddm_background" 
 

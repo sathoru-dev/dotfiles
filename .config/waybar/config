@@ -86,7 +86,7 @@
 		}
 	},
 	"custom/cpuinfo":{
-		"exec":"~/.config/scripts/waybar/temperature.sh",
+		"exec":"~/.config/scripts/waybar/temperature_cpu.sh",
 		"return-type":"json",
 		"format":"{}",
 		"tooltip":true,
@@ -163,7 +163,7 @@
 		"max-length":6
 	},
 	"custom/media":{
-		"exec":"~/.config/scripts/waybar/info_media_player.sh",
+		"exec":"~/.config/scripts/waybar/info_media.sh",
 		"format":"{}",
 		"on-click":"playerctl play-pause",
 		"interval":5,
@@ -171,7 +171,7 @@
 		"max-length":30
 	},
 	"custom/cava_mviz":{
-		"exec":"~/.config/scripts/WaybarCava.sh",
+		"exec":"~/.config/scripts/waybar/music_visualizer.sh",
 		"format":"{}"
 	},
 	"custom/notification":{

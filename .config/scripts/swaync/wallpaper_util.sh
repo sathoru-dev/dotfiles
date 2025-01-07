@@ -94,7 +94,7 @@ change_wallpaper() {
 
 change_locked() {
 
-    if [ -d "$USER/.cache/hyprlock" ]
+    if [ -d ~/.cache/hyprlock ]
     then
         local image
         local name_image
